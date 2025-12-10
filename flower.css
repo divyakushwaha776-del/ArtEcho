@@ -44,22 +44,23 @@ header {
 
 .gallery-container {
   margin: 24px 12px;
-  width: 90%;
-  max-width: 1100px;
+  width: 95%;
+  max-width: 1200px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
 }
 
 .card {
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: #fff;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 320px; /* visual card height; image will fill top */
+  height: auto; /* allow content to size naturally */
+  cursor: default;
 }
 
 .card:hover {
@@ -69,9 +70,20 @@ header {
 
 .card img {
   width: 100%;
-  height: 70%;
+  height: 180px;
   display: block;
   object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .card img {
+    height: 120px;
+  }
 }
 
 .caption {

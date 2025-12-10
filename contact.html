@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact • ArtEcho</title>
+    <link rel="stylesheet" href="contact.css">
+    
+</head>
+
+<body>
+  <header>
+    <div class="logo">ArtEcho 🌸</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Create</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <input type="text" placeholder="Search Pins...">
+  </header>
+
+  <main class="contact-container">
+    <div class="contact-grid">
+      <section class="contact-info">
+        <h1>Contact Us 💌</h1>
+        <p class="contact-subtext">Have questions, suggestions, or feedback? We’d love to hear from you. Drop a message and we'll get back within 24–48 hours.</p>
+
+        <div class="contact-details">
+          <p>📍 India</p>
+          <p>✉️ <a href="mailto:hello@artecho.com">hello@artecho.com</a></p>
+          <p>📞 +91 12345 67890</p>
+        </div>
+      </section>
+
+      <section class="contact-form-wrap">
+        <div id="formMessage" class="form-message" aria-live="polite" style="display:none"></div>
+
+        <form class="contact-form" action="contact.php" method="POST">
+          <label for="name">Your Name</label>
+          <input id="name" type="text" name="name" placeholder="Enter your name" required>
+
+          <label for="email">Your Email</label>
+          <input id="email" type="email" name="email" placeholder="Enter your email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message..." rows="6" required></textarea>
+
+          <div style="display:flex; gap:12px; align-items:center; margin-top:8px;">
+            <button type="submit" class="contact-btn">Send Message</button>
+            <button type="reset" class="contact-btn" style="background:#eee; color:#333; border:1px solid #ddd;">Reset</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Made by Divya 💖</p>
+  </footer>
+
+  <!-- Optional: show success/error message if redirected from PHP -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if(params.get('status') === 'success'){
+        alert("Message sent successfully!");
+    } else if(params.get('status') === 'error'){
+        alert("Invalid email, please try again.");
+    }
+  </script>
+</body>
+</html>

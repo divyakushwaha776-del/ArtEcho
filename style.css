@@ -1,22 +1,25 @@
-body {
+* {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fff9fb;
-  background-image: url('https://i.pinimg.com/originals/3b/b8/6f/3bb86f7f6eb31b80c558528b53e9c165.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding-bottom: 40px;
   color: #333;
 }
 
-
 header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 40px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: white;
-  padding: 15px 40px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -24,108 +27,104 @@ header {
 
 .logo {
   font-size: 1.8rem;
-  font-weight: bold;
-  color: #e60023;
+  font-weight: 700;
+  color: #667eea;
+}
+
+nav {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  gap: 30px;
 }
 
 nav a {
-  margin: 0 15px;
   text-decoration: none;
   color: #333;
-  font-weight: 600;
+  font-weight: 500;
   transition: color 0.3s;
 }
 
+nav a:hover,
 nav a.active {
-  background: #e60023;
-  color: white;
-  padding: 8px 18px;
-  border-radius: 20px;
+  color: #667eea;
 }
 
-nav a:hover {
-  color: #e60023;
-}
-
-input {
+header input {
   padding: 10px 20px;
-  border: 1px solid #ddd;
+  border: 2px solid #e0e0e0;
   border-radius: 25px;
-  width: 240px;
-  transition: 0.3s;
-}
-
-input:focus {
   outline: none;
-  border-color: #e60023;
-  box-shadow: 0 0 5px #e60023;
+  width: 250px;
+  transition: border-color 0.3s;
 }
 
-
+header input:focus {
+  border-color: #667eea;
+}
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 50px;
-  padding: 70px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
-
 .pin {
-  border-radius: 30px;
+  background: white;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 420px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .pin:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
-
-/* --- Different background colors for each pin --- */
-.pin:nth-child(1) { background-color: #ffe6eb; }
-.pin:nth-child(2) { background-color: #e8f0ff; }
-.pin:nth-child(3) { background-color: #e7ffe7; }
-.pin:nth-child(4) { background-color: #fff6e3; }
-.pin:nth-child(5) { background-color: #f4e8ff; }
-.pin:nth-child(6) { background-color: #eafcff; }
-.pin:nth-child(7) { background-color: #fff1f2; }
-.pin:nth-child(8) { background-color: #e9fff9; }
-.pin:nth-child(9) { background-color: #fef0ff; }
-.pin:nth-child(10){ background-color: #fffde7; }
 
 .pin img {
-  width: 10%;
-  height: 35px;
+  width: 100%;
+  height: 220px;
   object-fit: cover;
-  border-bottom: 5px solid rgba(0,0,0,0.05);
+  display: block;
 }
 
-.pin h2 {
-  font-size: 1.8rem;
-  margin: 18px 0 8px 0;
-  color: #222;
+.pin-content {
+  padding: 15px;
 }
 
-.pin p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 25px;
+.pin-content h2 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 5px;
 }
 
-/* --- Footer --- */
-footer {
-  text-align: center;
-  background-color: white;
-  padding: 25px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #e60023;
-  box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
+.pin-content p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 20px auto;
+  }
+
+  header {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  nav {
+    gap: 20px;
+  }
+
+  header input {
+    width: 100%;
+    order: 3;
+  }
 }
